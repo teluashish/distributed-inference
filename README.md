@@ -1,4 +1,4 @@
-# Distributed Deep Learning Inference for Trajectory Predictions
+# Distributed Deep Learning Inference for Trajectory Prediction
 
 **Introduction**
 
