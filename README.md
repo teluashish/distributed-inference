@@ -108,7 +108,7 @@ Deserialization and Serialization Overhead: They represent how much time is take
 | Node 3                | 1.36E-06               | 42.91                          | 16.57                | 24.96              | 0.94                       | 43.85        |
 | Total                 | 5.12E-05               | 61.349                         | 625.21               | 92.97              | 120.921                    | 182.27       |
 
-**Table 1. 3-Node Architecture Evaluation**
+<div align = "center"><p>Table 1. 3-Node Architecture Evaluation</p></div>
 
 | Architecture: 4 nodes | Energy consumption (J) | (de)serialization Overhead (s) | Network payload (Mb) | Inference Time (s) | Communication overhead (s) |  Latency (s) |
 |-----------------------|------------------------|--------------------------------|----------------------|--------------------|----------------------------|--------------|
@@ -119,7 +119,7 @@ Deserialization and Serialization Overhead: They represent how much time is take
 | Node 4                | 1.34E-06               | 42.63                          | 16.3                 | 26.75              | 0.62                       | 43.25        |
 | Total                 | 4.98E-05               | 56.4788                        | 608.4                | 127.268            | 161.2532                   | 217.732      |
 
-**Table 2. 4-Node Architecture Evaluation**
+<div align = "center"><p>Table 2. 4-Node Architecture Evaluation</p></div>
 
 | Architecture: 5 nodes | Energy consumption (J) | (de)serialization Overhead (s) | Network payload (Mb) |  Inference Time (s)   | Communication overhead (s) |   Latency (s)  |
 |-----------------------|------------------------|--------------------------------|----------------------|-----------------------|----------------------------|----------------|
@@ -131,7 +131,7 @@ Deserialization and Serialization Overhead: They represent how much time is take
 | Node 5                | 1.31E-06               | 45.81                          | 15.96                | 27.5                  | 0.32                       | 46.13          |
 | Total                 | 4.36E-05               | 60.637                         | 592.01               | 175.938               | 181.205                    | 241.842        |
 
-**Table 3. 5-Node Architecture Evaluation**
+<div align = "center"><p>Table 3. 5-Node Architecture Evaluation</p></div>
 
 ### Final Throughput Values
 
@@ -148,13 +148,13 @@ Deserialization and Serialization Overhead: They represent how much time is take
 - 6 Worker Nodes: 2.166 inferences per second, which is calculated from 128 results in 59.09s.
 
 
-**Fig. 1: Throughput Graph**
+<div align = "center"><p>Fig. 1: Throughput Graph</p></div>
 
  - In all the architectures, the master to the first node and final node to the master communication are the costliest processes, which can be seen from the communication overhead times presented in Tables 1, 2, and 3.
  - As we can see from the throughput graph in Fig. 1, when we have only 2 nodes we are not benefitting much from the distribution of inferences, producing low throughput. Although we noticed an increase in throughput at node 3, we started to see a decline due to the increased latency as we increased the number of nodes.
  - Finally, the sequential model had given us better throughput because our input to the pipelined system is large, and the latency caused due to serialization and deserialization times of the large input.
 
-**Fig. 2: Network Payload vs Total Time**
+<div align = "center"><p>Fig. 2: Network Payload vs Total Time</p></div>
 
 We validated this decline by plotting a line graph in Fig. 2 for the ratio of the total network payload to the total time for each architecture. The line graph demonstrates that the trend follows a similar pattern as the throughputs, indicating a decline in throughput from node 3 to node 6.
 
