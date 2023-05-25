@@ -21,7 +21,7 @@ To achieve the goal of building a distributed machine learning inference system 
 ## Project Design: Architecture and implementation
 Three main tasks were necessary to the realization of the project
 
-### Model partitioning
+### Model Partitioning
 
 The execution of prediction in a model necessitates the same underlying mathematical operations regardless of the approach used. However, in the proposed distributed deep learning inference system, the original model's multiple layers are partitioned and distributed across multiple compute nodes. This partitioning process is facilitated using the capabilities of Keras, a popular deep-learning framework in Python.
 
@@ -45,7 +45,7 @@ The master node establishes connections with two TCP Sockets for every compute n
 
 Each worker node establishes a TCP socket connection to its designated next node on a separate thread. This connection serves the purpose of transmitting intermediate inference results to the subsequent node in the inference chain. Consequently, each node is equipped with an incoming socket data connection from the previous node and an outgoing connection to the succeeding node. The output of the overall inference will be communicated from the last worker node to the master node.
 
-### Inference distribution
+### Inference Distribution
 
 After distributing model partitions across compute nodes, the master initiates the data transmission to the first worker node in the chain. When the incoming socket of a node receives data, it undergoes de-serialization and compression. The node then feeds the previous inference result into its model, performs the necessary computations, and obtains a result. This result is subsequently serialized, compressed, and sent through the outgoing socket. This process repeats for each compute node.
 
@@ -178,7 +178,7 @@ For transparency, we felt that we could have done better as the user still has t
 
 We felt that we could have made our project more scalable by changing the logic of the master and compute nodes slightly. Instead of statically assigning compute nodes to the master node, we could make the compute nodes request the master for tasks instead. This allows the program to dynamically assign available compute nodes to the master based on the size of input data.
 
-**Limitation**
+## Limitations
 
 One major limitation during our testing phase is that we were only able to provide a maximum of 5 cores to our virtual machine (VirtualBox). This meant that if we were to test our system on more than 5 nodes, at least 2 processes from any 2 nodes will be run on a core, which meant that the computation will not be truly parallel. Hence, our results were only accurate up to a maximum of 5 nodes.
 
