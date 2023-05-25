@@ -20,11 +20,12 @@ To achieve the goal of building a distributed machine learning inference system 
 
 ## Project Design: Architecture and implementation
 Three main tasks were necessary to the realization of the project
-<!-- <p align="center">
+
+<p align="center">
   <img src="images/CORE.png" width = "500">
 </p>
 
-<div align = "center"><p>Fig. 1: CORE Emulator</p></div> -->
+<div align = "center"><p>Fig. 1: CORE Emulator</p></div>
 
 ### Model Partitioning
 
