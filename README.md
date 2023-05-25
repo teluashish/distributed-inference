@@ -21,7 +21,7 @@ To achieve the goal of building a distributed machine learning inference system 
 ## Project Design: Architecture and implementation
 Three main tasks were necessary to the realization of the project
 <!-- <p align="center">
-  <img src="images/Throughput.png" width = "500">
+  <img src="images/CORE.png" width = "500">
 </p>
 
 <div align = "center"><p>Fig. 1: CORE Emulator</p></div> -->
@@ -157,7 +157,7 @@ Deserialization and Serialization Overhead: They represent how much time is take
   <img src="images/Throughput.png" width = "500">
 </p>
 
-<div align = "center"><p>Fig. 1: Throughput Graph</p></div>
+<div align = "center"><p>Fig. 2: Throughput Graph</p></div>
 
  - In all the architectures, the master to the first node and final node to the master communication are the costliest processes, which can be seen from the communication overhead times presented in Tables 1, 2, and 3.
  - As we can see from the throughput graph in Fig. 1, when we have only 2 nodes we are not benefitting much from the distribution of inferences, producing low throughput. Although we noticed an increase in throughput at node 3, we started to see a decline due to the increased latency as we increased the number of nodes.
@@ -168,7 +168,7 @@ Deserialization and Serialization Overhead: They represent how much time is take
   <img src="images/NetPayload.png" width = "500">
 </p>
 
-<div align = "center"><p>Fig. 2: Network Payload vs Total Time</p></div>
+<div align = "center"><p>Fig. 3: Network Payload vs Total Time</p></div>
 
 
 - We validated the throughput in throughput graph decline by plotting a line graph in Fig. 2 for the ratio of the total network payload to the total time for each architecture. The line graph demonstrates that the trend following a similar pattern as the throughputs, indicating a decline in throughput from node 3 to node 6.
