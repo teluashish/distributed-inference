@@ -155,6 +155,7 @@ Deserialization and Serialization Overhead: They represent how much time is take
  - Finally, the sequential model had given us better throughput because our input to the pipelined system is large, and the latency caused due to serialization and deserialization times of the large input.
 
 **Fig. 2: Network Payload vs Total Time**
+
 We validated this decline by plotting a line graph in Fig. 2 for the ratio of the total network payload to the total time for each architecture. The line graph demonstrates that the trend follows a similar pattern as the throughputs, indicating a decline in throughput from node 3 to node 6.
 
 ## How our key design choices affected results:
@@ -174,6 +175,9 @@ One major limitation during our testing phase is that we were only able to provi
 To build on the previous point, even if we test our system with 5 nodes or less, ultimately all computations are still going to be done on one physical machine. A better solution would be to distribute the computations on multiple physical machines with GPUs to better handle the computational complexities of the inference.
 
 ### Project Contributors:
+
 ***1. Ashish Telukunta***
+
 ***2. Wissam Sleiman***
+
 ***3. Tze Henn***
