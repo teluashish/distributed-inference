@@ -155,3 +155,7 @@ One major limitation during our testing phase is that we were only able to provi
 
 To build on the previous point, even if we test our system with 5 nodes or less, ultimately all computations are still going to be done on one physical machine. A better solution would be to distribute the computations on multiple physical machines with GPUs to better handle the computational complexities of the inference.
 
+Project Contributors:
+1. Ashish Telukunta
+2. Wissam Sleiman
+3. Tze Henn
