@@ -47,9 +47,13 @@ After distributing model partitions across compute nodes, the master initiates t
 The sockets handle the inference calculations in a sequential "first-in-first-out" manner, ensuring that prior inference data is sent to the next node before subsequent data. This sequencing is crucial to maintain the order in which inference results are returned to the dispatcher node. By allowing a compute node to process new inference data after completing a prior calculation, rather than waiting for the entire model to finish inference, the system should achieve higher throughput in terms of inference processing.
 
 ## Key Design Choices to Tackle Distributed System Challenges
+
 **Heterogeneity**
+
 In our project, heterogeneity is not the main issue. The reason is that our systems are self-contained, meaning they have consistent hardware configurations and computational capabilities. Therefore, there is no significant variation in terms of processing power, memory capacity, or network bandwidth among the worker nodes. As a result, the code does not include explicit mechanisms to address heterogeneity since it is not a relevant concern for our specific deployment scenario.
+
 **Openness**
+
 The architecture of our project is cleanly modularized into multiple sub-components using an Object-Oriented programming style, which makes it easy to extend each sub-component individually. Each Python file in the codebase represents each sub-component.
 **Security**
 Security concerns such as data privacy, authentication, or secure communication channels were not addressed because there was little value in doing so as our data is not confidential. Perhaps if we were dealing with confidential data, the connection between master and worker nodes could require some form of authentication. To ensure confidentiality, RSA could be used after the compression/decompression stage of data transfer.
