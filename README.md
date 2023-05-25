@@ -156,7 +156,7 @@ Deserialization and Serialization Overhead: They represent how much time is take
 
 <div align = "center"><p>Fig. 2: Network Payload vs Total Time</p></div>
 
-We validated this decline by plotting a line graph in Fig. 2 for the ratio of the total network payload to the total time for each architecture. The line graph demonstrates that the trend follows a similar pattern as the throughputs, indicating a decline in throughput from node 3 to node 6.
+- We validated the throughput in throughput graph decline by plotting a line graph in Fig. 2 for the ratio of the total network payload to the total time for each architecture. The line graph demonstrates that the trend following a similar pattern as the throughputs, indicating a decline in throughput from node 3 to node 6.
 
 ## How our key design choices affected results:
 
