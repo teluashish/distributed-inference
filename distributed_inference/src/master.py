@@ -50,7 +50,7 @@ class DistributedInference:
         submodel3 = tf.keras.models.Sequential(model.layers[8:12])
         output3 = submodel3(input3)
         #submodel3.save("submodel_3.h5")
-       #netron.start("submodel_3.h5")
+        #netron.start("submodel_3.h5")
         
         input4 = tf.keras.layers.Input(shape=output3.shape[1:])
         submodel4 = tf.keras.models.Sequential(model.layers[12:16])
@@ -60,11 +60,6 @@ class DistributedInference:
         submodel5 = tf.keras.models.Sequential(model.layers[16:])
         output5 = submodel5(input5)
 
-        '''
-        input6 = tf.keras.layers.Input(shape=output5.shape[1:])
-        submodel6 = tf.keras.models.Sequential(model.layers[17:])
-        output6 = submodel6(input6)                     
-        '''
         models.append(submodel1)
         models.append(submodel2)
         models.append(submodel3)  
@@ -73,49 +68,8 @@ class DistributedInference:
 
         models.append(submodel5)
 
-        '''
-        models.append(submodel6)                   
-        '''
         return models
-        
-      # This function partitions each model into sub-models specified in the layers argument
-    def _partition_by_layers(self, model, layers):
-        models = []
-       
-        for pIdx in range(len(layers)+1):
-
-            start = model.input.name if pIdx == 0 else layers[pIdx-1]
-            end = model.output.name if pIdx == len(layers) else layers[pIdx]
-
-            part_name = "part"+str(pIdx+1)
-            inpt = tf.keras.Input(tensor=model.get_layer(
-                start).output, name=part_name)
-            output = self._traverse(model, end, start, part_name, inpt)
-            sub_model = tf.keras.Model(inputs=model.get_layer(start).output, outputs=output)
-            print(sub_model, ": ", pIdx)
-            models.append(sub_model)
-  
-        return models    
-    
-        
-    # This function traverses and returns a clone of the input graph (model)
-    def _traverse(self, model, name, start, part_name,inpt):
-        name = name.split('/')[0]
-        if name in {start, part_name}:
-            return inpt
-
-        output = []
-        inbound = model.get_layer(name)._inbound_nodes[0].inbound_layers
-        prev_layers = [layer.name for layer in (inbound if type(inbound) == list else [inbound])]
-
-        for prev_layer in prev_layers:
-            output.append(self._traverse(
-                model, prev_layer, start, part_name, inpt))
-
-        layer = model.get_layer(name)
-
-        return layer(output[0] if len(output) == 1 else output)
-
+         
 
     def _create_socket(self, toblock, timeout):
     
