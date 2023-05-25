@@ -200,7 +200,7 @@ To build on the previous point, even if we test our system with 5 nodes or less,
 
 **Video Link:** https://drive.google.com/file/d/1qBi9DK-NZSx1zBxr2ht9muvLBD6hFlfF/view?usp=share_link
 
-REFERENCES:
+### REFERENCES:
 
 [1] A. Parthasarathy and B. Krishnamachari, "DEFER: Distributed Edge Inference for Deep Neural Networks," 2022 14th International Conference on COMmunication Systems & NETworkS (COMSNETS), Bangalore, India, 2022, pp. 749-753, doi: 10.1109/COMSNETS53615.2022.9668515.
 
