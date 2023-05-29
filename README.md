@@ -178,8 +178,6 @@ Deserialization and Serialization Overhead: They represent how much time is take
 
 Our main goal of increasing concurrency, and hence throughput, was adversely affected by the large data inputs because of huge communication, serialization, and deserialization overhead, which our pipelined system is not optimized for. A smaller data input would have generated much better results for the parallel model.
 
-Initially, our entire program was in a few big files, making our code messy and hard to debug. After we modularized our code into classes, we found that it was easier to debug our code in the event of problems and extend the code further. This made our progress much faster and everyone was able to contribute more rapidly to the codebase without much blockages.
-
 For transparency, we felt that we could have done better as the user still has to make a decision about the number of nodes used in the program. This is not ideal as the number of nodes used could have a huge impact on the throughput, negating the gains in throughput brought about by utilizing multiple compute nodes. In the future, a dynamic load balancer could be implemented to estimate the optimal number of compute nodes needed for the inference in order to maximize throughput.
 
 We felt that we could have made our project more scalable by changing the logic of the master and compute nodes slightly. Instead of statically assigning compute nodes to the master node, we could make the compute nodes request the master for tasks instead. This allows the program to dynamically assign available compute nodes to the master based on the size of input data.
